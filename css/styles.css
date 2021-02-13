@@ -1,0 +1,701 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: IBMPlexMono;
+  font-size: 14px;
+  color: #060A24;
+}
+
+@font-face{
+    font-family: IBMPlexMono;
+    font-style: normal;
+    font-weight: normal;
+    src: url(../assets/IBMPlexMono-Light.ttf);
+}
+
+/*----header y menú ------*/
+
+header {
+  width: 100%;
+  position: fixed;
+  height: 44px;
+  top: 0;
+  padding: 10px 5%;
+  background-color: #ffffff;
+  z-index: 1;
+}
+
+
+header img {
+  float: left;
+}
+
+header nav {
+  float: right;
+  /*posicion absolute para que se posicione 
+  debajo del resto del header - top medida del header*/
+}
+
+
+/*Vuelve al Checkbox transparente y grande*/
+.menu_input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  opacity: 0;
+  z-index: 2;
+  position: absolute;
+}
+
+.menu_input_span{
+  display: block;
+  width: 25px;
+  height: 2.5px;
+  margin-bottom: 6.5px;
+  position: relative;
+  background: #000;
+  transform-origin: 3px 0px;
+  transition: transform 0.5s ease,
+  opacity 0.55s ease;
+}
+/*-----------movimiento a cruz----------*/
+.menu_input_span-anim:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+.menu_input-anim:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(2px, 1px);
+}
+
+.menu_input-anim:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.menu_input-anim:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(1px, 0px);
+}
+
+/*-----------Al dar check aparece las opciones--------- */
+.menu_input-anim:checked ~ ul {
+  height: 224px;
+  transition: height 0.5s ease-in-out;
+  -moz-transition: height 0.5s ease-in-out;
+  -o-transition: height 0.5s ease-in-out;
+  -webkit-transition: height 0.5s ease-in-out;
+}
+
+
+header nav ul {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  list-style: none;
+  background: #0000ec;
+  height: 0px;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-transition: height 0.5s ease;
+  transition: height 0.5s ease;  
+}
+
+header nav ul li{
+    position: relative;
+}
+
+header nav ul li:hover {
+  background: #5a5a5a;
+}
+
+header nav ul li a {
+  position: relative;
+  text-decoration: none;
+  color: #ffffff;
+  padding: 16px;
+  display: block;
+}
+
+header nav ul li a:hover {
+  color: black;
+  background-color: #00F3BB ;
+}
+
+
+
+
+/*----------Section introduction-----------*/
+
+.intro{
+  height: 377px;
+  width: 100%;
+  padding-top: 70px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 24px;
+}
+
+.intro_tittle{
+ font-size: 2.5rem;
+ letter-spacing: 0;
+ line-height: 42px;
+ font-weight: bold;
+}
+
+.intro_tittle_span{
+ text-decoration: line-through;
+ font-size: 2.5rem;
+}
+
+.intro_parra{
+line-height: 1.5rem;
+}
+
+.intro_boton{
+display: block;
+width: 288px;
+height: 48px;
+text-align: center;
+background-color:#00F3BB ;
+padding: 13px 80px;
+text-decoration: none;
+font-weight: bold;
+font-size: 1.5rem;
+}
+
+.intro_boton-anim:hover{
+background-image: linear-gradient(225deg, #0000FE 0%, #00F0B8 100%);
+color: #ffffff;
+}
+
+
+/*--------------Sección Episodio------------------*/
+
+.episodio{
+position: relative;
+width: 100vw;
+height: 920px;
+background-image: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+margin-top: 42px;
+padding-left: 16px;
+padding-right: 16px;
+padding-top: 64px;
+margin: 0 auto; /*para centrarlo*/
+clip-path: polygon(0 3%, 100% 0%, 100% 97%, 0% 100%);
+}
+
+.cuadro{
+width: 300px;
+height: 150px;
+background-color: azure;
+display: inline-block;
+}
+
+.episodio_tittle{
+color: #ffffff;
+font-size: 2.5rem;
+margin-bottom:21px ;
+}
+
+
+.min-episodio_podcast{
+width: 288px;
+height: 155px;
+display: inline-block;
+}
+
+/*-------Sección historia--------*/
+
+.history{
+width: 100vw;
+padding: 0px 16px 0px 16px;
+position: relative;
+display: block;
+height: 828px;
+}
+
+.history_img{
+width: 360px;
+height: 519px;
+position: absolute;
+top: -112px;
+left: -20px;
+}
+
+.history_text{
+color: #000000;
+position: absolute;
+top: 424px;
+left: 0px;
+margin-left: 16px;
+margin-right: 16px;
+}
+
+.history_tittle{
+font-size: 2.5rem;
+}
+
+/* ---------Personajes --------------*/
+
+.personas{
+display: block;
+}
+
+.personas_tittle{
+font-size: 2.5rem;
+}
+
+.personas_foto{
+width: 100%;
+/* height: 243px; */
+}
+
+
+.personas_foto_1{grid-area:foto1 }
+.personas_foto_2{grid-area:foto2 }
+.personas_foto_3{grid-area:foto3 }
+.personas_foto_4{grid-area:foto4 }
+.personas_foto_5{grid-area:foto5 }
+.personas_foto_6{grid-area:foto6 }
+
+.min-personas_fotos{
+display: grid;
+grid-gap:0px;
+grid-template-areas: 
+"foto1"
+"foto2"
+"foto3"
+"foto4"
+"foto5"
+"foto6"
+;
+}
+
+/*------------Temas ---------*/
+.temas{
+padding-left: 16px;
+}
+
+.temas_tittle{
+font-size: 2.5rem;
+}
+
+
+.tema_subtittle{
+font-size: 1.5rem;
+}
+
+.temas_listado{
+ padding-top: 35px;
+ margin: 16px;
+ text-align: center;
+ list-style: none;
+}
+
+.tema_lista{
+margin-bottom:36px;
+}
+
+/*----------------Novedades------------------*/
+
+.novedades{
+width: 100vw;
+height: 341px;
+background-image: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+margin-top: 42px;
+padding-left: 16px;
+padding-right: 16px;
+padding-top: 64px;
+margin: 0 auto; /*para centrarlo*/
+clip-path: polygon(0 3%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.novedades_tittle{
+font-size: 2rem;
+color: #ffffff;
+text-align: center;
+}
+
+.novedades_boton{
+margin-top: 36px;
+display: block;
+width: 288px;
+height: 48px;
+text-align: center;
+background-color:#00F3BB ;
+padding: 13px 30px;
+text-decoration: none;
+font-weight: bold;
+font-size: 1.2rem;
+color: #000000;
+}
+
+.novedades_boton-anim:hover{
+background-image: linear-gradient(225deg, #0000FE 0%, #00F0B8 100%);
+color: #ffffff;
+}
+
+
+
+/*---------------footer---------------------*/
+footer{
+padding-top: 24px;
+height: 137px;
+padding: 43px
+}
+
+footer ul li{
+display: inline-block;
+margin: 12px;
+}
+
+
+
+/*------------MediaQuery minimo-----*/
+
+@media screen and (max-width: 320px)  {
+
+header{
+  width: 320px;
+}
+body{
+  width: 320px;
+}
+.intro{
+  width: 320px;
+}
+.episodio{
+  width: 320px;
+}
+
+.history{
+  width: 320px;
+}
+
+.personas{
+  width: 320px;
+}
+
+.temas{
+  width: 320px;
+}
+
+}
+
+/*------Media IPAD-------------------*/
+@media screen and (min-width:768px) {
+
+.menu_input {
+  display: none;
+  overflow: hidden;
+}
+
+.menu_input_span{
+  display: none;
+  overflow: hidden;
+}
+
+header nav ul {
+  width: 100%;
+  position: absolute;
+  list-style: none;
+  background: #ffffff;
+  height: 44px;
+  z-index: 2;
+  left: 292px;
+  top: 0px;
+}
+
+header nav ul li{
+    position: relative;
+    display: inline-block;
+}
+
+header nav ul li a {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  padding: 16px;
+  display:inline-block;
+}
+
+header nav ul li a:hover {
+  color: black;
+  background-color: #00F3BB ;
+}
+
+
+/*----------Introducción---------------*/
+
+.intro {
+  padding-top: 104px;
+  padding-left: 45px;
+}
+
+/*----------Episodio---------------*/
+
+.episodio{
+padding-left: 45px;
+height: 600px;
+}
+
+.mm-episodio_podcast {
+width: 319px;
+height: 155px;
+display: inline-block;
+}
+
+/*----------History---------------*/
+.history {
+height: 439px;
+}
+
+.history_text {
+top: 28px;
+left: 316px;
+}
+
+/*----------personas---------------*/
+
+.personas_foto {
+width: 100%;
+}
+.min-personas_fotos{
+display: grid;
+grid-gap:0px;
+grid-template-areas: 
+"foto1 foto2"
+"foto3 foto4"
+"foto5 foto6"  
+;
+}
+
+
+/*----------Temas listado------------*/
+
+.temas{
+  padding-top: 10px;
+}
+
+.temas_listado{
+  margin-bottom:16px;
+  }
+
+.tema_lista{
+  display: inline-block;
+  margin-bottom:36px;
+  width: 283px;
+  }
+
+
+
+  /*-------------Novedades--------------*/
+
+
+  .novedades_boton{
+    margin-top: 57px;
+    margin-left: 223px;
+    }
+
+
+  .novedades{
+    padding-top: 91px;
+  }
+
+
+  /*------------Footer----------------*/
+  footer{
+    height:86px;
+  }
+
+  footer h1{
+    float: left;
+  }
+
+  footer ul{
+    float: right;
+  }
+}
+
+
+@media screen and (min-width:1220px) {
+
+  .menu_input {
+    display: none;
+    overflow: hidden;
+  }
+  
+  .menu_input_span{
+    display: none;
+    overflow: hidden;
+  }
+  
+  header nav ul {
+    width: 100%;
+    position: absolute;
+    list-style: none;
+    background: #ffffff;
+    height: 44px;
+    z-index: 2;
+    left: 61%;
+    top: 0px;
+  }
+  
+  header nav ul li{
+      position: relative;
+      display: inline-block;
+  }
+  
+  header nav ul li a {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    padding: 16px;
+    display:inline-block;
+  }
+  
+  header nav ul li a:hover {
+    color: #00F3BB;
+    background-color:white;
+    text-decoration: line-through;
+
+  }
+  
+  
+  /*----------Introducción---------------*/
+  
+  .intro {
+    padding-top: 104px;
+    padding-left: 200px;
+  }
+  
+
+  .intro_parra{
+    padding-right: 487px;
+  }
+  
+  .intro_tittle ::after{
+    font-weight: bold;
+    color: blue;
+    content: '.';
+  }
+
+
+  /*----------Episodio---------------*/
+  
+  .episodio{
+  padding-left: 24px;
+  height: 874px;
+  clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
+  padding-top: 119px;
+  }
+
+  .episodio_tittle{
+    padding-left: 173px;
+  }
+
+  .episodio_podcast{
+  padding-right: 10%;
+  padding-left: 8.5%;
+  }
+  
+  .mm-episodio_podcast {
+  width: 47%;
+  height: 251px;
+  margin-left: 20px;
+  display: inline-block;
+  }
+  
+  /*----------History---------------*/
+  .history {
+  height: 439px;
+  }
+
+  .history_img{
+    left: 182px;
+  }
+  
+  .history_text {
+  top: 28px;
+  left: 48%;
+  margin-right: 18%;
+  }
+  
+/*----------personas---------------*/
+  
+  .personas_tittle{
+    padding-left: 169px;
+    padding-bottom: 5px;
+  }
+  .personas_foto {
+    width: 100%;
+  }
+  .min-personas_fotos{
+    display: grid;
+    grid-gap:0px;
+    grid-template-areas: 
+      "foto1 foto2 foto3"
+      "foto4 foto5 foto6"
+    ;
+  }
+  
+  
+/*----------Temas listado------------*/
+
+  .temas{
+    padding-top: 48px;
+    height: 400px;
+  }
+  .temas_tittle{
+    padding-left: 161px;
+  }
+  .temas_listado{
+    margin-bottom:16px;
+  }
+  .tema_lista{
+    display: inline-block;
+    margin-bottom:36px;
+    width: 210px;
+    }
+  
+  
+  
+/*-------------Novedades--------------*/
+  
+    .novedades_boton{
+      margin-top: 57px;
+      margin-left: 37%;
+    }
+    .novedades{
+      padding-top: 91px;
+      height: 403px;
+      clip-path: polygon(0 30%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    .novedades_tittle{
+      padding-top: 50px;
+    }
+
+ 
+    /*------------Footer----------------*/
+    footer{
+      height:86px;
+      padding: 3% 7% 2% 6%;
+    }
+    footer h1{
+      float: left;
+      top: 0px;
+    }
+    footer ul{
+      float: right;
+    }
+    footer ul li{
+      margin: 0px 12px 0px 0px;
+    }
+  
+  
+  
+  }
